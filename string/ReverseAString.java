@@ -1,0 +1,18 @@
+package string;
+
+import java.util.*;
+
+public class ReverseAString {
+
+	public static void main(String[] args) {
+             Scanner s = new Scanner(System.in);
+             System.out.println("Enter the string: ");
+             String s1 = s.nextLine();
+             
+             for(int i=s1.length();i>0; --i) {
+            	 System.out.print(s1.charAt(i-1));
+            	 
+             }
+	}
+
+}

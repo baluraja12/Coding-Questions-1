@@ -1,0 +1,28 @@
+package streams;
+
+import java.util.*;
+import java.util.function.Function;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
+
+public class RemoveDuplicates {
+
+	public static void main(String[] args) {
+
+		//Integer[] array = {1,1,1,2,2,24,5,5,6,7};
+		
+		List<Integer> array = Arrays.asList(1,1,1,2,2,24,5,5,6,7);
+		
+//		Set<Integer> distinct = new LinkedHashSet<>(Arrays.asList(array));
+//		System.out.println(distinct);
+//		
+//		Map<Integer, Long> consecutiveOccurence = Arrays.stream(array)
+//		.collect(Collectors.groupingBy(Function.identity(), Collectors.counting()));
+//		consecutiveOccurence.forEach((key, value)->{
+//		if(value>1) {
+//			System.out.println(key + " Occures "  +value+ " times");
+//		}
+//		});
+	}
+
+}
