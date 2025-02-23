@@ -1,0 +1,53 @@
+package streams;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+class Employe{
+	private int id;
+	private String name;
+	private int age;
+	private String gender;
+	private double salary;
+	public Employe(int id, String name, int age, String gender, double salary) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.age = age;
+		this.gender = gender;
+		this.salary = salary;
+	}
+	public int getId() {
+		return id;
+	}
+	public String getName() {
+		return name;
+	}
+	public int getAge() {
+		return age;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public double getSalary() {
+		return salary;
+	}
+}
+public class Tcs {
+
+	public static void main(String[] args) {
+		List<Employe> emp = Arrays.asList(
+				new Employe(1, "Balu", 26, "male", 45000),
+				new Employe(2, "Raju", 26, "male", 45000),
+				new Employe(1, "Indhu", 26, "Female", 45000),
+				new Employe(1, "Raghav", 26, "Gay", 45000)
+				
+				);
+		Map<String, Long> gender = emp.stream().collect(Collectors.groupingBy(Employe::getGender, Collectors.counting()));
+		Map<String, Double> avg = emp.stream().collect(Collectors.groupingBy(Employe::getGender, Collectors.averagingDouble(Employe::getSalary)));
+	 System.out.println("gender" + gender);
+	}
+
+}

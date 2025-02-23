@@ -1,0 +1,53 @@
+package streams;
+
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+class Employees2{
+	private int id;
+	private String name;
+	private int age;
+	private String gender;
+	private double salary;
+	public Employees2(int id, String name, int age, String gender, double salary) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.age = age;
+		this.gender = gender;
+		this.salary = salary;
+	}
+	public int getId() {
+		return id;
+	}
+	public String getName() {
+		return name;
+	}
+	public int getAge() {
+		return age;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public double getSalary() {
+		return salary;
+	}
+}
+public class Employee1 {
+
+	public static void main(String[] args) {
+		List<Employees2> emp = Arrays.asList(
+				 new Employees2(1, "Balu", 26, "Male", 45000),
+	    		 new Employees2(2, "Raja", 32, "Male", 50000),
+	    		 new Employees2(3, "Lakshu", 29, "FeMale", 70000),
+	    		 new Employees2(4, "Indhu", 18, "FeMale", 50000)
+				);
+		Map<String, Long> count = emp.stream().collect(Collectors.groupingBy(Employees2::getGender, Collectors.counting()));
+		System.out.println("Gender count", +count );
+	
+	}
+	
+
+}

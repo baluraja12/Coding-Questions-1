@@ -1,0 +1,58 @@
+package streams;
+
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+import java.util.*;
+
+class Employees{
+	private int id;
+	private String name;
+	private int age;
+	private String gender;
+	private double salary;
+	public Employees(int id, String name, int age, String gender, double salary) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.age = age;
+		this.gender = gender;
+		this.salary = salary;
+	}
+	public int getId() {
+		return id;
+	}
+	public String getName() {
+		return name;
+	}
+	public int getAge() {
+		return age;
+	}
+	public String getGender() {
+		return gender;
+	}
+	public double getSalary() {
+		return salary;
+	}
+}
+public class Employee {
+
+	public static void main(String[] args) {
+    List<Employees> employee = Arrays.asList(
+    		 new Employees(1, "Balu", 26, "Male", 45000),
+    		 new Employees(2, "Raja", 32, "Male", 50000),
+    		 new Employees(3, "Lakshu", 29, "FeMale", 70000),
+    		 new Employees(4, "Indhu", 18, "FeMale", 50000)
+    		);
+        Map<String, Long> genderCount = employee.stream()
+        		.collect(Collectors.groupingBy(Employees::getGender, Collectors.counting()));
+		System.out.println("Gender count" + genderCount);
+		Map<String, Double> avgSalary = employee.stream()
+				.collect(Collectors.groupingBy(Employees::getGender, Collectors.averagingDouble(Employees::getSalary)));
+		System.out.println("Average salary" + avgSalary);
+		Optional<Employees> maxSalary = employee.stream()
+		.max(Comparator.comparing(Employees::getSalary));
+		maxSalary.ifPresent(emp->System.out.println("Employee with max salary" + emp.getName() + "with salary" + emp.getSalary()));
+	}
+  
+
+}

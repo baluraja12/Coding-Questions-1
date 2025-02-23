@@ -1,0 +1,17 @@
+package string;
+
+import java.util.stream.Collectors;
+
+public class RemoveDuplicateElemnets {
+
+	public static void main(String[] args) {
+		String s = "hi welocme to club my dear friend";
+		
+		String result = s.chars()
+		.distinct()
+		.mapToObj(c->String.valueOf((char) c))
+		.collect(Collectors.joining());
+		System.out.println();
+	}
+    
+}
